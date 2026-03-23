@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - CloudKart E-Commerce Platform</title>
+    <meta name="description"
+        content="Explore all 50+ powerful features of CloudKart including product management, subscriptions, combo packs, payment gateways, and more.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .feature-category {
+            margin-bottom: 4rem;
+        }
+
+        .feature-category-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .feature-category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: white;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            border-left: 4px solid var(--primary);
+        }
+
+        .feature-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .feature-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="CloudKart Logo">
+                CloudKart
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="return false;" style="color: var(--primary);">
+                        Features <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="features.html"><i class="fas fa-list"></i>All Features</a>
+                        <a href="fireworks.html"><i class="fas fa-fire-alt"></i>Fireworks Solutions</a>
+                    </div>
+                </li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="shopify-comparison.html">CloudKart vs Shopify</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin" id="navLogin">Login</a></li>
+                <li id="navDashboardWrapper" style="display:none;"><a href="admin">Dashboard</a></li>
+            </ul>
+            <a href="create-store.html" class="btn btn-primary" id="navCTA">Create Store</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Powerful Features for Modern E-Commerce</h1>
+            <p style="font-size: 1.25rem; opacity: 0.95;">Everything you need to build, manage, and grow your online
+                store</p>
+        </div>
+    </section>
+
+    <!-- Features Content -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Product Management -->
+            <div class="feature-category">
+                <div class="feature-category-header">
+                    <div class="feature-category-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <div>
+                        <h2>Product Management</h2>
+                        <p style="color: var(--gray-600); margin: 0;">Complete control over your product catalog</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2" style="gap: 1.5rem;">
+                    <div class="feature-item">
+                        <h4><i class="fas fa-infinity mr-2"></i>Unlimited Products & Categories</h4>
+                        <p>Create unlimited products and organize them into hierarchical categories. No restrictions on
+                            catalog size - perfect for businesses of any scale.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-tags mr-2"></i>Product Variants & Attributes<span
+                                class="feature-badge">Advanced</span></h4>
+                        <p>Manage product variations like size, color, weight with full SKU tracking. Each variant can
+                            have its own price, stock, and images.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-file-import mr-2"></i>Bulk Import/Export</h4>
+                        <p>Upload thousands of products via CSV files in seconds. Export your catalog for backup or
+                            migration. Includes error validation and reporting.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-images mr-2"></i>Image Gallery & Auto Thumbnails</h4>
+                        <p>Upload multiple images per product with automatic thumbnail generation. Optimized images for
+                            faster page loading and better SEO.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fab fa-youtube mr-2"></i>YouTube Video Integration</h4>
+                        <p>Embed product demonstration videos directly from YouTube. Increase engagement and conversion
+                            rates with visual content.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-warehouse mr-2"></i>Inventory Management</h4>
+                        <p>Real-time stock tracking with low-stock alerts. Set minimum and maximum stock levels. Track
+                            stock movements and history.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Commerce -->
+            <div class="feature-category">
+                <div class="feature-category-header">
+                    <div class="feature-category-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div>
+                        <h2>Advanced Commerce Features</h2>
+                        <p style="color: var(--gray-600); margin: 0;">Unique features that set you apart from
+                            competitors</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2" style="gap: 1.5rem;">
+                    <div class="feature-item">
+                        <h4><i class="fas fa-sync-alt mr-2"></i>Subscription Schemes<span
+                                class="feature-badge">Unique</span></h4>
+                        <p>Create recurring payment plans (monthly/weekly) perfect for saving schemes, memberships, or
+                            subscription boxes. Automatic payment tracking and reminders.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-layer-group mr-2"></i>Combo Pack Creation<span
+                                class="feature-badge">Unique</span></h4>
+                        <p>Bundle multiple products together with special pricing. Perfect for gift sets, seasonal
+                            offers, or value packs. Manage combo inventory separately.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-ticket-alt mr-2"></i>Advanced Coupon System</h4>
+                        <p>Create unlimited coupons with complex rules: percentage/fixed discounts, minimum order value,
+                            usage limits, expiry dates, and specific product/category targeting.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-building mr-2"></i>Brand Management</h4>
+                        <p>Organize products by brands with dedicated brand pages. Upload brand logos, descriptions, and
+                            create brand-specific collections.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-chart-line mr-2"></i>Wholesale Pricing Tiers</h4>
+                        <p>Set different price levels for retail and wholesale customers. Bulk pricing with
+                            quantity-based discounts. Per-carton wholesale rates.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-star-half-alt mr-2"></i>Featured Products</h4>
+                        <p>Highlight special products on your homepage. Create curated collections and promotional
+                            sections to boost sales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Management -->
+            <div class="feature-category">
+                <div class="feature-category-header">
+                    <div class="feature-category-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div>
+                        <h2>Order Management</h2>
+                        <p style="color: var(--gray-600); margin: 0;">Complete order lifecycle management</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2" style="gap: 1.5rem;">
+                    <div class="feature-item">
+                        <h4><i class="fas fa-tasks mr-2"></i>Multi-Status Workflow</h4>
+                        <p>Track orders through complete lifecycle: Pending → Confirmed → Processing → Shipped →
+                            Delivered. Custom status updates and notifications.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-envelope mr-2"></i>Automated Email Notifications</h4>
+                        <p>Automatic emails for order confirmation, status updates, and delivery notifications.
+                            Customizable email templates with your branding.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-history mr-2"></i>Order History & Logs</h4>
+                        <p>Complete audit trail of all order changes. Track who made changes and when. Export order
+                            reports for accounting and analysis.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-cash-register mr-2"></i>POS Integration<span
+                                class="feature-badge">Advanced</span></h4>
+                        <p>Manage both online and offline sales in one system. Perfect for businesses with physical
+                            stores. Unified inventory across channels.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-print mr-2"></i>Invoice Generation</h4>
+                        <p>Automatic invoice creation with GST details. Print-ready PDF invoices. Customizable invoice
+                            templates.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-undo mr-2"></i>Returns & Refunds</h4>
+                        <p>Manage product returns and refund requests. Track return status and process refunds
+                            efficiently.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Experience -->
+            <div class="feature-category">
+                <div class="feature-category-header">
+                    <div class="feature-category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h2>Customer Experience</h2>
+                        <p style="color: var(--gray-600); margin: 0;">Delight your customers at every touchpoint</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2" style="gap: 1.5rem;">
+                    <div class="feature-item">
+                        <h4><i class="fab fa-google mr-2"></i>Google Sign-In Integration</h4>
+                        <p>One-click login with Google accounts. Faster checkout, reduced cart abandonment. Secure OAuth
+                            2.0 authentication.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fab fa-whatsapp mr-2"></i>WhatsApp OTP Login<span
+                                class="feature-badge">Unique</span></h4>
+                        <p>Login via WhatsApp OTP for customers without email. Perfect for Indian market. Secure and
+                            convenient authentication.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-tachometer-alt mr-2"></i>Customer Dashboard</h4>
+                        <p>Personalized dashboard for customers to view orders, track shipments, manage subscriptions,
+                            and update profile information.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>Order Tracking</h4>
+                        <p>Real-time order status tracking. Customers can see exactly where their order is in the
+                            fulfillment process.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-heart mr-2"></i>Wishlist & Favorites</h4>
+                        <p>Save products for later purchase. Share wishlists with friends. Get notified when wishlist
+                            items go on sale.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-search mr-2"></i>Advanced Search & Filters</h4>
+                        <p>Powerful search with autocomplete. Filter by price, category, brand, attributes. Sort by
+                            relevance, price, popularity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment & Shipping -->
+            <div class="feature-category">
+                <div class="feature-category-header">
+                    <div class="feature-category-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div>
+                        <h2>Payment & Shipping</h2>
+                        <p style="color: var(--gray-600); margin: 0;">Flexible payment and delivery options</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2" style="gap: 1.5rem;">
+                    <div class="feature-item">
+                        <h4><i class="fas fa-rupee-sign mr-2"></i>Razorpay Integration</h4>
+                        <p>Accept all major payment methods: Credit/Debit cards, UPI, Net Banking, Wallets. Instant
+                            payment confirmation and reconciliation.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-mobile-alt mr-2"></i>PhonePe Support</h4>
+                        <p>Popular UPI payment gateway integration. Perfect for Indian customers who prefer PhonePe for
+                            transactions.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-money-bill-wave mr-2"></i>Cash on Delivery (COD)</h4>
+                        <p>Traditional payment option for customer convenience. Set COD availability by location or
+                            order value.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-truck mr-2"></i>Flexible Shipping Options</h4>
+                        <p>Multiple shipping methods: Standard, Express, Free delivery. Set shipping rates by weight,
+                            location, or order value.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-calculator mr-2"></i>Automatic Tax Calculation</h4>
+                        <p>Built-in GST calculation. Support for multiple tax rates. Generate tax reports for
+                            compliance.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-shield-alt mr-2"></i>Secure Transactions</h4>
+                        <p>PCI-DSS compliant payment processing. SSL encryption for all transactions. Fraud detection
+                            and prevention.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Delivery System -->
+            <div class="feature-category">
+                <div class="feature-category-header">
+                    <div class="feature-category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div>
+                        <h2>Food Delivery System<span class="feature-badge">New</span></h2>
+                        <p style="color: var(--gray-600); margin: 0;">Complete food ordering and delivery management</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2" style="gap: 1.5rem;">
+                    <div class="feature-item">
+                        <h4><i class="fas fa-store mr-2"></i>Restaurant Management</h4>
+                        <p>Manage multiple restaurants or branches from one dashboard. Set operating hours, delivery
+                            zones, and restaurant-specific menus.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-book mr-2"></i>Menu Management</h4>
+                        <p>Create detailed menus with categories, items, variants (size, add-ons), pricing, and
+                            availability. Set special offers and combo meals.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-map-marker-alt mr-2"></i>Delivery Zone Management</h4>
+                        <p>Define delivery areas with radius or polygon mapping. Set delivery charges by zone, minimum
+                            order values, and estimated delivery times.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-motorcycle mr-2"></i>Delivery Partner Integration</h4>
+                        <p>Integrate with delivery partners or manage your own delivery fleet. Track delivery status in
+                            real-time with GPS integration.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-clock mr-2"></i>Pre-Order & Scheduled Delivery</h4>
+                        <p>Allow customers to place orders in advance. Schedule deliveries for specific times. Perfect
+                            for meal prep and catering orders.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-bell mr-2"></i>Real-Time Order Tracking</h4>
+                        <p>Customers can track their orders from kitchen to doorstep. Real-time status updates:
+                            Confirmed → Preparing → Out for Delivery → Delivered.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-star mr-2"></i>Rating & Review System</h4>
+                        <p>Collect customer feedback on food quality, delivery time, and overall experience. Build trust
+                            with authentic reviews and ratings.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-percent mr-2"></i>Promotional Offers</h4>
+                        <p>Create food-specific promotions: first-order discounts, combo deals, happy hour offers, and
+                            loyalty rewards for repeat customers.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-mobile-alt mr-2"></i>Mobile App Ready</h4>
+                        <p>Fully responsive design works perfectly on mobile devices. Native app-like experience with
+                            PWA support for offline ordering.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-chart-bar mr-2"></i>Kitchen Display System</h4>
+                        <p>Digital KDS for kitchen staff to view and manage orders. Print receipts, update order status,
+                            and optimize kitchen workflow.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-user-tie mr-2"></i>Delivery Boy App</h4>
+                        <p>Dedicated app for delivery personnel to view assigned orders, navigate to customer locations,
+                            and update delivery status.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-receipt mr-2"></i>Order History & Analytics</h4>
+                        <p>Track popular items, peak hours, delivery performance, and customer preferences. Generate
+                            reports for business insights.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Panel -->
+            <div class="feature-category">
+                <div class="feature-category-header">
+                    <div class="feature-category-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div>
+                        <h2>Admin Panel</h2>
+                        <p style="color: var(--gray-600); margin: 0;">Powerful tools to manage your entire business</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-2" style="gap: 1.5rem;">
+                    <div class="feature-item">
+                        <h4><i class="fas fa-chart-pie mr-2"></i>Comprehensive Dashboard</h4>
+                        <p>Real-time sales analytics, revenue tracking, top products, customer insights. Visual charts
+                            and graphs for quick decision making.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-palette mr-2"></i>Theme Customization<span class="feature-badge">3
+                                Themes</span></h4>
+                        <p>Choose from 3 professionally designed themes: General (Modern), Organic (Natural), Crackers
+                            (Festive). Switch themes instantly.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-sliders-h mr-2"></i>Settings Configuration</h4>
+                        <p>Complete control over site settings: currency, timezone, email templates, payment methods,
+                            shipping options, and more.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-user-shield mr-2"></i>Role-Based Access</h4>
+                        <p>Create multiple admin users with different permission levels. Secure access control for team
+                            management.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-file-export mr-2"></i>Export & Reports</h4>
+                        <p>Export data in multiple formats (CSV, Excel, PDF). Generate sales reports, inventory reports,
+                            customer reports.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4><i class="fas fa-bell mr-2"></i>Notifications & Alerts</h4>
+                        <p>Get notified about new orders, low stock, payment confirmations. Email and dashboard
+                            notifications.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Screenshot Showcase -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>See CloudKart in Action</h2>
+                <p>Real screenshots from the CloudKart platform</p>
+            </div>
+
+            <div class="grid grid-3" style="gap: 2rem;">
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="images/dashboard.png" alt="Admin Dashboard"
+                        style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Admin Dashboard</h4>
+                        <p style="color: var(--gray-600); margin: 0;">Comprehensive analytics and insights</p>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="images/products.png" alt="Product Management"
+                        style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Product Management</h4>
+                        <p style="color: var(--gray-600); margin: 0;">Easy product catalog management</p>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="images/subscription.png" alt="Subscription Schemes"
+                        style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Subscription Schemes</h4>
+                        <p style="color: var(--gray-600); margin: 0;">Unique recurring payment system</p>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="images/combo_pack.png" alt="Combo Packs"
+                        style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Combo Pack Creation</h4>
+                        <p style="color: var(--gray-600); margin: 0;">Bundle products with special pricing</p>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="images/Pos_Retail.png" alt="POS System"
+                        style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">POS Integration</h4>
+                        <p style="color: var(--gray-600); margin: 0;">Retail & wholesale POS modes</p>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <img src="images/Settings_Theme.png" alt="Theme Settings"
+                        style="width: 100%; height: 250px; object-fit: cover;">
+                    <div style="padding: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Theme Customization</h4>
+                        <p style="color: var(--gray-600); margin: 0;">3 beautiful themes to choose from</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="demo.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-images mr-2"></i>View All Screenshots
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+        style="background: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%); color: white; padding: 3.5rem 0; text-align: center;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1rem;">Experience All These Features Today</h2>
+            <p style="font-size: 1.25rem; opacity: 0.95; margin-bottom: 2rem;">Start your 7-day free trial. No credit
+                card required.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="pricing.html" class="btn btn-lg" style="background: white; color: var(--primary);">
+                    <i class="fas fa-rocket mr-2"></i>Start 7-Day Free Trial
+                </a>
+                <a href="demo.html" class="btn btn-lg btn-secondary"
+                    style="border-color: white; color: var(--primary); background: white;">
+                    <i class="fas fa-play mr-2"></i>Watch Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--gray-900); color: white; padding: 3rem 0 1.5rem;">
+        <div class="container">
+            <div class="grid grid-4 mb-4">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <img src="images/logo.png" alt="CloudKart Logo" style="height: 32px;">
+                        <span style="font-size: 1.25rem; font-weight: 700;">CloudKart</span>
+                    </div>
+                    <p style="color: var(--gray-400);">Premium cloud-based e-commerce platform for modern businesses.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Product</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="features.html"
+                                style="color: var(--gray-400);">Features</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="pricing.html"
+                                style="color: var(--gray-400);">Pricing</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="shopify-comparison.html"
+                                style="color: var(--gray-400);">CloudKart vs Shopify</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="demo.html" style="color: var(--gray-400);">Demo</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: var(--gray-400);">About
+                                Us</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                                style="color: var(--gray-400);">Contact</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="privacy-policy.html"
+                                style="color: var(--gray-400);">Privacy Policy</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="terms-and-conditions.html"
+                                style="color: var(--gray-400);">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Connect</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--gray-800); padding-top: 2rem; text-align: center; color: var(--gray-400);">
+                <p>&copy; <span id="currentYear"></span> CloudKart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navCTA = document.getElementById('navCTA');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking on a link
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        // Show/hide CTA button based on screen size
+        function handleResize() {
+            if (window.innerWidth <= 768) {
+                navCTA.style.display = 'none';
+            } else {
+                navCTA.style.display = 'inline-block';
+            }
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+    <script>
+        // Check for active session
+        document.addEventListener('DOMContentLoaded', () => {
+            const dashboardWrapper = document.getElementById('navDashboardWrapper');
+            const loginLink = document.getElementById('navLogin');
+            const ctaBtn = document.getElementById('navCTA');
+
+            if (localStorage.getItem('cloudkart_user')) {
+                if (dashboardWrapper) dashboardWrapper.style.display = 'block';
+                if (loginLink) loginLink.style.display = 'none';
+                if (ctaBtn) ctaBtn.textContent = 'Launch Another';
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

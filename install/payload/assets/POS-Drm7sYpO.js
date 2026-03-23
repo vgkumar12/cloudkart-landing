@@ -1,0 +1,1 @@
+import{P as t}from"./POSComponent-CegZDTub.js";import{q as o,z as r}from"./vendor-vue-BaYriqBY.js";import"./_plugin-vue_export-helper-Bp58vchm.js";import"./vendor-state-Bxdvk8zd.js";import"./vendor-http-B9ygI19o.js";import"./Modal-DATKFPzp.js";const f={__name:"POS",setup(e){return(p,m)=>(r(),o(t,{type:"retail"}))}};export{f as default};

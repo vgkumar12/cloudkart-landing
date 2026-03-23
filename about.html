@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CloudKart E-Commerce Platform</title>
+    <meta name="description"
+        content="Learn about CloudKart - the premium cloud-based e-commerce platform built with modern technologies for businesses of all sizes.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack-item {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition-base);
+        }
+
+        .tech-stack-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            border-left: 4px solid var(--primary);
+        }
+
+        .value-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="CloudKart Logo">
+                CloudKart
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="return false;">
+                        Features <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="features.html"><i class="fas fa-list"></i>All Features</a>
+                        <a href="fireworks.html"><i class="fas fa-fire-alt"></i>Fireworks Solutions</a>
+                    </div>
+                </li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="shopify-comparison.html">CloudKart vs Shopify</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="about.html" style="color: var(--primary);">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin" id="navLogin">Login</a></li>
+                <li id="navDashboardWrapper" style="display:none;"><a href="admin">Dashboard</a></li>
+            </ul>
+            <a href="create-store.html" class="btn btn-primary" id="navCTA">Create Store</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About CloudKart</h1>
+            <p style="font-size: 1.25rem; opacity: 0.95;">Empowering businesses with cutting-edge e-commerce technology
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+                <div>
+                    <h2 class="gradient-text mb-3">Our Mission</h2>
+                    <h3 class="mb-3">Making E-Commerce Simple and Powerful</h3>
+                    <p style="font-size: 1.125rem; color: var(--gray-700); line-height: 1.8;">
+                        CloudKart was born from a simple vision: to create an e-commerce platform that combines
+                        enterprise-level features with unmatched simplicity. We believe that every business,
+                        regardless of size, deserves access to powerful tools that help them succeed online.
+                    </p>
+                    <p style="font-size: 1.125rem; color: var(--gray-700); line-height: 1.8; margin-top: 1rem;">
+                        Our platform is designed to grow with your business, from your first sale to your millionth.
+                        We're committed to continuous innovation, ensuring you always have access to the latest
+                        e-commerce technologies and best practices.
+                    </p>
+                </div>
+                <div class="card"
+                    style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 3rem; text-align: center;">
+                    <i class="fas fa-rocket"
+                        style="font-size: 6rem; color: white; opacity: 0.9; margin-bottom: 2rem;"></i>
+                    <h3 style="color: white; margin-bottom: 1rem;">Built for Success</h3>
+                    <p style="color: white; opacity: 0.95; font-size: 1.125rem;">
+                        Trusted by businesses worldwide to power their online stores
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose CloudKart?</h2>
+                <p>What sets us apart from other e-commerce platforms</p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 2rem;">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Innovation First</h3>
+                    <p style="color: var(--gray-600);">
+                        We don't just follow trends—we set them. Features like subscription schemes and combo pack
+                        creation are unique to CloudKart, giving you competitive advantages others don't have.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Customer-Centric</h3>
+                    <p style="color: var(--gray-600);">
+                        Every feature we build starts with one question: "How will this help our customers succeed?"
+                        Your success is our success, and we're invested in your growth.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Modern Technology</h3>
+                    <p style="color: var(--gray-600);">
+                        Built with Vue.js 3, PHP 8.1+, and modern best practices, CloudKart delivers lightning-fast
+                        performance and rock-solid reliability that your customers will love.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Security & Reliability</h3>
+                    <p style="color: var(--gray-600);">
+                        Enterprise-grade security with SSL encryption, JWT authentication, and PCI-DSS compliant
+                        payment processing. Your data and your customers' data are always protected.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Built with Modern Technologies</h2>
+                <p>Leveraging the best tools for performance, security, and scalability</p>
+            </div>
+
+            <div style="margin-bottom: 4rem;">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">
+                    <i class="fas fa-desktop mr-2"></i>Frontend Technologies
+                </h3>
+                <div class="grid grid-4">
+                    <div class="tech-stack-item">
+                        <i class="fab fa-vuejs tech-icon" style="color: #42b883;"></i>
+                        <h4>Vue.js 3</h4>
+                        <p style="color: var(--gray-600); font-size: 0.875rem;">Progressive JavaScript Framework</p>
+                    </div>
+                    <div class="tech-stack-item">
+                        <i class="fas fa-bolt tech-icon" style="color: var(--primary);"></i>
+                        <h4>Vite</h4>
+                        <p style="color: var(--gray-600); font-size: 0.875rem;">Next Generation Build Tool</p>
+                    </div>
+                    <div class="tech-stack-item">
+                        <i class="fas fa-wind tech-icon" style="color: #06B6D4;"></i>
+                        <h4>Tailwind CSS</h4>
+                        <p style="color: var(--gray-600); font-size: 0.875rem;">Utility-First CSS Framework</p>
+                    </div>
+                    <div class="tech-stack-item">
+                        <i class="fas fa-database tech-icon" style="color: #3B82F6;"></i>
+                        <h4>Pinia</h4>
+                        <p style="color: var(--gray-600); font-size: 0.875rem;">State Management</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">
+                    <i class="fas fa-server mr-2"></i>Backend Technologies
+                </h3>
+                <div class="grid grid-4">
+                    <div class="tech-stack-item">
+                        <i class="fab fa-php tech-icon" style="color: #777BB4;"></i>
+                        <h4>PHP 8.1+</h4>
+                        <p style="color: var(--gray-600); font-size: 0.875rem;">Modern PHP with Type Safety</p>
+                    </div>
+                    <div class="tech-stack-item">
+                        <i class="fas fa-database tech-icon" style="color: #F29111;"></i>
+                        <h4>MySQL</h4>
+                        <p style="color: var(--gray-600); font-size: 0.875rem;">Reliable Database</p>
+                    </div>
+                    <div class="tech-stack-item">
+                        <i class="fas fa-code tech-icon" style="color: var(--secondary);"></i>
+                        <h4>Custom MVC</h4>
+                        <p style="color: var(--gray-600); font-size: 0.875rem;">Lightweight Framework</p>
+                    </div>
+                    <div class="tech-stack-item">
+                        <i class="fas fa-key tech-icon" style="color: #10B981;"></i>
+                        <h4>JWT Auth</h4>
+                        <p style="color: var(--gray-600); font-size: 0.875rem;">Secure Authentication</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Highlight -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Makes CloudKart Unique</h2>
+                <p>Features you won't find anywhere else</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card" style="text-align: center;">
+                    <i class="fas fa-sync-alt"
+                        style="font-size: 3rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Subscription Schemes</h3>
+                    <p style="color: var(--gray-600);">
+                        Unique recurring payment system perfect for saving schemes, memberships, and subscription boxes.
+                        No other platform offers this level of flexibility.
+                    </p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <i class="fas fa-layer-group"
+                        style="font-size: 3rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Combo Pack Creation</h3>
+                    <p style="color: var(--gray-600);">
+                        Create attractive product bundles with special pricing. Manage combo inventory separately
+                        and boost your average order value.
+                    </p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <i class="fab fa-whatsapp" style="font-size: 3rem; color: #25D366; margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">WhatsApp OTP Login</h3>
+                    <p style="color: var(--gray-600);">
+                        Innovative login system using WhatsApp OTP, perfect for markets where customers prefer
+                        WhatsApp over email. Increase conversions significantly.
+                    </p>
+                </div>
+
+                <div class="card" style="text-align: center;">
+                    <i class="fas fa-utensils"
+                        style="font-size: 3rem; color: var(--primary); margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Food Delivery System</h3>
+                    <p style="color: var(--gray-600);">
+                        Complete food ordering and delivery management system with restaurant management, menu control,
+                        delivery tracking, and kitchen display system. Perfect for restaurants and food businesses.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+        style="background: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%); color: white; padding: 3.5rem 0; text-align: center;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1rem;">Ready to Join CloudKart?</h2>
+            <p style="font-size: 1.25rem; opacity: 0.95; margin-bottom: 2rem;">
+                Start your 7-day free trial and experience the difference
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-lg" style="background: white; color: var(--primary);">
+                    <i class="fas fa-rocket mr-2"></i>Start 7-Day Free Trial
+                </a>
+                <a href="contact.html" class="btn btn-lg btn-secondary"
+                    style="border-color: white; color: var(--primary); background: white;">
+                    <i class="fas fa-phone mr-2"></i>Contact Sales
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--gray-900); color: white; padding: 3rem 0 1.5rem;">
+        <div class="container">
+            <div class="grid grid-4 mb-4">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <img src="images/logo.png" alt="CloudKart Logo" style="height: 32px;">
+                        <span style="font-size: 1.25rem; font-weight: 700;">CloudKart</span>
+                    </div>
+                    <p style="color: var(--gray-400);">Premium cloud-based e-commerce platform for modern businesses.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Product</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="features.html"
+                                style="color: var(--gray-400);">Features</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="pricing.html"
+                                style="color: var(--gray-400);">Pricing</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="shopify-comparison.html"
+                                style="color: var(--gray-400);">CloudKart vs Shopify</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="demo.html" style="color: var(--gray-400);">Demo</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: var(--gray-400);">About
+                                Us</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                                style="color: var(--gray-400);">Contact</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="privacy-policy.html"
+                                style="color: var(--gray-400);">Privacy Policy</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="terms-and-conditions.html"
+                                style="color: var(--gray-400);">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Connect</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--gray-800); padding-top: 2rem; text-align: center; color: var(--gray-400);">
+                <p>&copy; <span id="currentYear"></span> CloudKart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navCTA = document.getElementById('navCTA');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        function handleResize() {
+            if (window.innerWidth <= 768) {
+                navCTA.style.display = 'none';
+            } else {
+                navCTA.style.display = 'inline-block';
+            }
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script>
+        // Check for active session
+        document.addEventListener('DOMContentLoaded', () => {
+            const dashboardWrapper = document.getElementById('navDashboardWrapper');
+            const loginLink = document.getElementById('navLogin');
+            const ctaBtn = document.getElementById('navCTA');
+
+            if (localStorage.getItem('cloudkart_user')) {
+                if (dashboardWrapper) dashboardWrapper.style.display = 'block';
+                if (loginLink) loginLink.style.display = 'none';
+                if (ctaBtn) ctaBtn.textContent = 'Launch Another';
+            }
+        });
+    </script>
+</body>
+
+</html>

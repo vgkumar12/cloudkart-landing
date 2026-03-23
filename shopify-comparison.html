@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudKart vs Shopify | Why Choose CloudKart?</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .comparison-table-wrapper {
+            background: white;
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+            margin-top: -5rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            border: 1px solid var(--gray-100);
+            position: relative;
+            z-index: 10;
+        }
+
+        .comp-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 600px;
+        }
+
+        .comp-table th,
+        .comp-table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
+            text-align: left;
+        }
+
+        .comp-table th {
+            font-size: 1.125rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            background: var(--gray-50);
+        }
+
+        .comp-table th:first-child {
+            border-top-left-radius: var(--radius-lg);
+        }
+
+        .comp-table th:last-child {
+            border-top-right-radius: var(--radius-lg);
+        }
+
+        .comp-table .cloudkart-col {
+            background: rgba(107, 70, 193, 0.04);
+            border-left: 1px solid rgba(107, 70, 193, 0.1);
+            border-right: 1px solid rgba(107, 70, 193, 0.1);
+        }
+
+        .check-icon {
+            color: var(--success);
+            font-size: 1.125rem;
+        }
+
+        .cross-icon {
+            color: var(--error);
+            font-size: 1.125rem;
+        }
+
+        .winner-tag {
+            background: var(--success);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="CloudKart Logo">
+                CloudKart
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="shopify-comparison.html" class="active" style="color: var(--primary);">CloudKart vs
+                        Shopify</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin" id="navLogin">Login</a></li>
+                <li id="navDashboardWrapper" style="display:none;"><a href="admin">Dashboard</a></li>
+            </ul>
+            <a href="register.html" class="btn btn-primary" id="navCTA">Get Started</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="vs-badge"
+                style="display: inline-block; background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 2rem; font-weight: 700; margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.2);">
+                CloudKart vs Shopify
+            </div>
+            <h1>Stop Paying Monthly "Rent" for Your Online Store</h1>
+            <p style="font-size: 1.25rem; opacity: 0.95; max-width: 800px; margin: 1rem auto 0;">
+                Experience the freedom of a high-performance, one-time investment platform designed for modern Indian
+                businesses.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="comparison-table-wrapper">
+                <table class="comp-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">Feature</th>
+                            <th style="width: 35%; text-align: center;" class="cloudkart-col">CloudKart <span
+                                    class="winner-tag">Winner</span></th>
+                            <th style="width: 35%; text-align: center;">Shopify</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Model</strong></td>
+                            <td class="cloudkart-col text-center">
+                                <span style="display: block; font-weight: 700;">One-time Investment</span>
+                                <small style="color: var(--gray-500);">Pay once, own forever</small>
+                            </td>
+                            <td class="text-center">
+                                <span style="display: block;">Monthly Subscription</span>
+                                <small style="color: var(--gray-500);">Stop paying, lose your shop</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transaction Fees</strong></td>
+                            <td class="cloudkart-col text-center">
+                                <i class="fas fa-check-circle check-icon"></i> <strong>0%</strong>
+                                <br><small style="color: var(--gray-500);">Your profit stays yours</small>
+                            </td>
+                            <td class="text-center">
+                                <i class="fas fa-times-circle cross-icon"></i> <strong>Up to 2%</strong>
+                                <br><small style="color: var(--gray-500);">On every single sale</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Setup Service</strong></td>
+                            <td class="cloudkart-col text-center">
+                                <i class="fas fa-check-circle check-icon"></i> Assisted Setup
+                                <br><small style="color: var(--gray-500);">We do the heavy lifting</small>
+                            </td>
+                            <td class="text-center">
+                                <i class="fas fa-question-circle" style="color: var(--warning);"></i> DIY
+                                <br><small style="color: var(--gray-500);">Do it yourself or hire experts</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Native App</strong></td>
+                            <td class="cloudkart-col text-center">
+                                <i class="fas fa-check-circle check-icon"></i> Included
+                                <br><small style="color: var(--gray-500);">Own your presence</small>
+                            </td>
+                            <td class="text-center">
+                                <i class="fas fa-times-circle cross-icon"></i> Paid Add-on
+                                <br><small style="color: var(--gray-500);">Monthly recurring app fee</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>WhatsApp Login/OTP</strong></td>
+                            <td class="cloudkart-col text-center">
+                                <i class="fas fa-check-circle check-icon"></i> Native
+                                <br><small style="color: var(--gray-500);">Zero per-message cost</small>
+                            </td>
+                            <td class="text-center">
+                                <i class="fas fa-times-circle cross-icon"></i> 3rd Party
+                                <br><small style="color: var(--gray-500);">App & Provider costs</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indian Payment Support</strong></td>
+                            <td class="cloudkart-col text-center"><i class="fas fa-check-circle check-icon"></i> UPI &
+                                Local Gateways<br><small>Pre-integrated</small></td>
+                            <td class="text-center"><i class="fas fa-check-circle check-icon"></i>
+                                Supported<br><small>Via 3rd parties</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Hidden Costs of Shopify</h2>
+                <p>What you see isn't always what you pay. Shopify's "low" entry price masks a mountain of recurring
+                    expenses.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card text-center">
+                    <div class="feature-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3>App Store Trap</h3>
+                    <p>Basic features like product filters, WhatsApp buttons, or bulk discounts on Shopify require paid
+                        apps.</p>
+                    <div class="cost-impact"
+                        style="background: #FFF5F5; padding: 1rem 1.5rem; border-radius: 1rem; color: #C53030; font-weight: 600; font-size: 0.9rem; margin-top: 1rem; display: inline-block;">
+                        Typical Cost: +$50/month</div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="feature-icon"><i class="fas fa-percentage"></i></div>
+                    <h3>Success Penalty</h3>
+                    <p>Shopify charges you a fee every time you make a sale. The more successful you become, the more
+                        they take.</p>
+                    <div class="cost-impact"
+                        style="background: #FFF5F5; padding: 1rem 1.5rem; border-radius: 1rem; color: #C53030; font-weight: 600; font-size: 0.9rem; margin-top: 1rem; display: inline-block;">
+                        Impact: 2% of total revenue</div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Theme Limitation</h3>
+                    <p>Professional, high-converting themes on Shopify often cost a significant one-time fee or monthly
+                        lease.</p>
+                    <div class="cost-impact"
+                        style="background: #FFF5F5; padding: 1rem 1.5rem; border-radius: 1rem; color: #C53030; font-weight: 600; font-size: 0.9rem; margin-top: 1rem; display: inline-block;">
+                        Theme Cost: $180 - $350</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why CloudKart Wins for Indian Sellers</h2>
+                <p>We built CloudKart specifically for the needs of growing Indian businesses.</p>
+            </div>
+
+            <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+                <div>
+                    <img src="images/dashboard-preview.png" alt="CloudKart Dashboard" class="float"
+                        style="width: 100%; border-radius: 2rem; box-shadow: var(--shadow-2xl);">
+                </div>
+                <div>
+                    <div style="margin-bottom: 2.5rem;">
+                        <h3 style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <i class="fas fa-magic" style="color: var(--primary); font-size: 1.25rem;"></i>
+                            We Handle the Tech
+                        </h3>
+                        <p style="color: var(--gray-700); font-size: 1.0625rem;">
+                            Unlike Shopify where you're left to figure it out, we provide <strong>Assisted
+                                Setup</strong>.
+                            We help import your products, set up your domain, and configure your payment gateway so you
+                            can start selling immediately.
+                        </p>
+                    </div>
+                    <div style="margin-bottom: 2.5rem;">
+                        <h3 style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <i class="fas fa-wallet" style="color: var(--primary); font-size: 1.25rem;"></i>
+                            Fixed Budgeting
+                        </h3>
+                        <p style="color: var(--gray-700); font-size: 1.0625rem;">
+                            With CloudKart, your costs are predictable. A one-time setup fee and a fixed annual hosting
+                            cost.
+                            No surprise bills from the App Store or hidden transaction cuts.
+                        </p>
+                    </div>
+                    <div style="margin-bottom: 2.5rem;">
+                        <h3 style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                            <i class="fas fa-mobile-alt" style="color: var(--primary); font-size: 1.25rem;"></i>
+                            App Ownership
+                        </h3>
+                        <p style="color: var(--gray-700); font-size: 1.0625rem;">
+                            Get a native Android App (.apk) that you own. Reach your customers directly on their home
+                            screens without paying monthly rental fees for mobile presence.
+                        </p>
+                    </div>
+                    <a href="register.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-check-circle mr-2"></i>Switch to CloudKart Today
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section"
+        style="background: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%); color: white; text-align: center; border-radius: var(--radius-2xl); margin: 4rem 1.5rem;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1.5rem;">Ready to Break Free from Subscriptions?</h2>
+            <p
+                style="color: white; opacity: 0.9; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Join over 500+ sellers who switched to CloudKart and saved an average of ₹40,000 yearly in recurring
+                fees.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="register.html" class="btn btn-lg" style="background: white; color: var(--primary);">
+                    <i class="fas fa-rocket mr-2"></i>Get Started Now
+                </a>
+                <a href="pricing.html" class="btn btn-lg btn-secondary"
+                    style="border-color: white; color: white; background: transparent;">
+                    <i class="fas fa-tags mr-2"></i>View Pricing Plans
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--gray-900); color: white; padding: 3rem 0 1.5rem;">
+        <div class="container">
+            <div class="grid grid-4 mb-4">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <img src="images/logo.png" alt="CloudKart Logo" style="height: 32px;">
+                        <span style="font-size: 1.25rem; font-weight: 700;">CloudKart</span>
+                    </div>
+                    <p style="color: var(--gray-400);">Premium cloud-based e-commerce platform for modern businesses.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Product</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="features.html"
+                                style="color: var(--gray-400);">Features</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="pricing.html"
+                                style="color: var(--gray-400);">Pricing</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="shopify-comparison.html"
+                                style="color: var(--gray-400);">CloudKart vs Shopify</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="demo.html" style="color: var(--gray-400);">Demo</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: var(--gray-400);">About
+                                Us</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                                style="color: var(--gray-400);">Contact</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="privacy-policy.html"
+                                style="color: var(--gray-400);">Privacy Policy</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="terms-and-conditions.html"
+                                style="color: var(--gray-400);">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Connect</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--gray-400); font-size: 1.25rem;"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.25rem;"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.25rem;"><i
+                                class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--gray-800); padding-top: 2rem; text-align: center; color: var(--gray-400);">
+                <p>&copy; <span id="currentYear"></span> CloudKart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+            });
+        }
+
+        // Check for active session
+        document.addEventListener('DOMContentLoaded', () => {
+            const dashboardWrapper = document.getElementById('navDashboardWrapper');
+            const loginLink = document.getElementById('navLogin');
+            const ctaBtn = document.getElementById('navCTA');
+
+            if (localStorage.getItem('cloudkart_user')) {
+                if (dashboardWrapper) dashboardWrapper.style.display = 'block';
+                if (loginLink) loginLink.style.display = 'none';
+                if (ctaBtn && ctaBtn.tagName === 'A') {
+                    ctaBtn.textContent = 'Launch Another';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

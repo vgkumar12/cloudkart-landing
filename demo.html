@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - CloudKart E-Commerce Platform</title>
+    <meta name="description"
+        content="See CloudKart in action. Watch demo videos and explore screenshots of our powerful e-commerce platform.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header h1 {
+            color: white;
+            margin-bottom: 0.75rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .page-header p {
+            font-size: 1.0625rem;
+            opacity: 0.95;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--gray-100);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: var(--primary-light);
+        }
+
+        .demo-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(107, 70, 193, 0.05) 0%, transparent 100%);
+            z-index: 1;
+        }
+
+        .demo-image i {
+            font-size: 4.5rem;
+            color: var(--primary);
+            opacity: 0.2;
+            z-index: 2;
+        }
+
+        .demo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .demo-card:hover .demo-image img {
+            transform: scale(1.05);
+        }
+
+        .demo-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .demo-content p {
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .demo-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(107, 70, 193, 0.2);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: var(--gray-900);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        .video-placeholder:hover {
+            opacity: 0.9;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .screenshot-item {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            cursor: pointer;
+        }
+
+        .screenshot-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .screenshot-caption {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        @media (max-width: 768px) {
+            .food-delivery-demo .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .food-delivery-demo .demo-card {
+                padding: 1.5rem;
+            }
+
+            .food-delivery-demo .demo-card>div>div {
+                transform: none !important;
+                margin-top: 1rem !important;
+            }
+
+            .food-delivery-demo .demo-card>div>div>div {
+                width: 180px !important;
+                height: 360px !important;
+            }
+
+            .demo-image {
+                height: 240px;
+            }
+
+            .demo-content {
+                padding: 1.5rem;
+            }
+
+            .demo-content h3 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="CloudKart Logo">
+                CloudKart
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="return false;">
+                        Features <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="features.html"><i class="fas fa-list"></i>All Features</a>
+                        <a href="fireworks.html"><i class="fas fa-fire-alt"></i>Fireworks Solutions</a>
+                    </div>
+                </li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="shopify-comparison.html">CloudKart vs Shopify</a></li>
+                <li><a href="demo.html" style="color: var(--primary);">Demo</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" id="navLogin">Login</a></li>
+                <li id="navDashboardWrapper" style="display:none;"><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+            <a href="create-store.html" class="btn btn-primary" id="navCTA">Create Store</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>See CloudKart in Action</h1>
+            <p style="font-size: 1.25rem; opacity: 0.95;">Explore our platform through interactive demos and screenshots
+            </p>
+        </div>
+    </section>
+
+    <!-- Live Theme Demos -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explore Our Live Demos</h2>
+                <p style="font-size: 1.125rem;">Click on any demo to experience our platform in action</p>
+            </div>
+
+            <div class="grid grid-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <a href="https://cloudkart24.com/demo/general" target="_blank" class="demo-card"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="demo-image">
+                        <img src="images/General.png" alt="General Theme">
+                    </div>
+                    <div class="demo-content">
+                        <h3>General Theme</h3>
+                        <p>Modern and clean design perfect for any e-commerce store. Professional layout with intuitive
+                            navigation and seamless user experience.</p>
+                        <span class="btn btn-primary"
+                            style="width: 100%; text-align: center; margin-top: auto; display: inline-block;">
+                            <i class="fas fa-external-link-alt mr-2"></i>View Live Demo
+                        </span>
+                    </div>
+                </a>
+
+                <a href="https://cloudkart24.com/demo/organic" target="_blank" class="demo-card"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="demo-image">
+                        <img src="images/Organic.png" alt="Organic Theme">
+                    </div>
+                    <div class="demo-content">
+                        <h3>Organic Theme</h3>
+                        <p>Natural and eco-friendly design with earthy tones. Perfect for organic products and
+                            sustainable brands looking to connect with eco-conscious customers.</p>
+                        <span class="btn btn-primary"
+                            style="width: 100%; text-align: center; margin-top: auto; display: inline-block;">
+                            <i class="fas fa-external-link-alt mr-2"></i>View Live Demo
+                        </span>
+                    </div>
+                </a>
+
+                <a href="https://cloudkart24.com/demo/crackers" target="_blank" class="demo-card"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="demo-image">
+                        <img src="images/Crackers.png" alt="Crackers Theme">
+                    </div>
+                    <div class="demo-content">
+                        <h3>Crackers Theme</h3>
+                        <p>Vibrant and festive design with bold colors. Ideal for celebration products and seasonal
+                            stores that want to create excitement and urgency.</p>
+                        <span class="btn btn-primary"
+                            style="width: 100%; text-align: center; margin-top: auto; display: inline-block;">
+                            <i class="fas fa-external-link-alt mr-2"></i>View Live Demo
+                        </span>
+                    </div>
+                </a>
+
+                <a href="https://cloudkart24.com/demo/food-delivery" target="_blank" class="demo-card"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="demo-image"
+                        style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); position: relative;">
+                        <div
+                            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%); z-index: 1;">
+                        </div>
+                        <img src="images/food_delivery_app.png" alt="Food Delivery System"
+                            style="position: relative; z-index: 2;"
+                            onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;\'><div style=\'width:120px;height:120px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);\'><i class=\'fas fa-utensils\' style=\'font-size: 3.5rem; color: white;\'></i></div><div style=\'text-align:center;color:white;font-weight:600;font-size:1.1rem;\'>Food Delivery<br>System</div></div>'">
+                    </div>
+                    <div class="demo-content">
+                        <h3>
+                            Food Delivery System
+                            <span class="demo-badge">New</span>
+                        </h3>
+                        <p>Complete food ordering and delivery platform with restaurant management, menu control,
+                            real-time tracking, and mobile-optimized interface for seamless customer experience.</p>
+                        <span class="btn btn-primary"
+                            style="width: 100%; text-align: center; margin-top: auto; display: inline-block;">
+                            <i class="fas fa-external-link-alt mr-2"></i>View Live Demo
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Delivery Mobile App Demo -->
+    <section class="section bg-gray food-delivery-demo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Food Delivery Mobile App</h2>
+                <p style="font-size: 1.125rem;">Experience our mobile-optimized food delivery system</p>
+            </div>
+
+            <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+                <div>
+                    <h3 class="gradient-text mb-4" style="font-size: 2rem;">Mobile-First Food Delivery Experience</h3>
+                    <p style="font-size: 1.125rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 2rem;">
+                        Our food delivery system is built with mobile users in mind. Experience seamless ordering,
+                        real-time tracking, and intuitive navigation designed specifically for smartphones and tablets.
+                    </p>
+                    <div
+                        style="background: white; border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-md); margin-bottom: 2rem;">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li
+                                style="padding: 1rem 0; border-bottom: 1px solid var(--gray-100); display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle"
+                                    style="color: var(--success); font-size: 1.25rem; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <div>
+                                    <strong
+                                        style="color: var(--gray-900); display: block; margin-bottom: 0.25rem;">Product
+                                        Detail Pages</strong>
+                                    <span style="color: var(--gray-600); font-size: 0.95rem;">Beautiful food item pages
+                                        with images, customization options, and add-ons</span>
+                                </div>
+                            </li>
+                            <li
+                                style="padding: 1rem 0; border-bottom: 1px solid var(--gray-100); display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle"
+                                    style="color: var(--success); font-size: 1.25rem; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <div>
+                                    <strong
+                                        style="color: var(--gray-900); display: block; margin-bottom: 0.25rem;">Smart
+                                        Discovery</strong>
+                                    <span style="color: var(--gray-600); font-size: 0.95rem;">Search, filter, and browse
+                                        restaurants by category, cuisine, and location</span>
+                                </div>
+                            </li>
+                            <li
+                                style="padding: 1rem 0; border-bottom: 1px solid var(--gray-100); display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle"
+                                    style="color: var(--success); font-size: 1.25rem; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <div>
+                                    <strong
+                                        style="color: var(--gray-900); display: block; margin-bottom: 0.25rem;">Restaurant
+                                        Listings</strong>
+                                    <span style="color: var(--gray-600); font-size: 0.95rem;">View nearby restaurants
+                                        with ratings, delivery time, and cuisine tags</span>
+                                </div>
+                            </li>
+                            <li
+                                style="padding: 1rem 0; border-bottom: 1px solid var(--gray-100); display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle"
+                                    style="color: var(--success); font-size: 1.25rem; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <div>
+                                    <strong
+                                        style="color: var(--gray-900); display: block; margin-bottom: 0.25rem;">Promotional
+                                        Banners</strong>
+                                    <span style="color: var(--gray-600); font-size: 0.95rem;">Eye-catching offers and
+                                        discounts to boost orders</span>
+                                </div>
+                            </li>
+                            <li style="padding: 1rem 0; display: flex; align-items: flex-start; gap: 1rem;">
+                                <i class="fas fa-check-circle"
+                                    style="color: var(--success); font-size: 1.25rem; margin-top: 0.25rem; flex-shrink: 0;"></i>
+                                <div>
+                                    <strong style="color: var(--gray-900); display: block; margin-bottom: 0.25rem;">Easy
+                                        Checkout</strong>
+                                    <span style="color: var(--gray-600); font-size: 0.95rem;">Quick add to cart with
+                                        quantity selector and seamless payment</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="https://cloudkart24.com/demo/food-delivery" target="_blank" class="btn btn-primary btn-lg">
+                        <i class="fas fa-mobile-alt mr-2"></i>Try Mobile App Demo
+                    </a>
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center; min-height: 400px;">
+                    <div
+                        style="position: relative; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+                        <div style="position: relative; transform: rotate(-5deg); transition: transform 0.3s ease;">
+                            <div
+                                style="width: 180px; height: 360px; background: white; border-radius: 30px; padding: 10px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                                <div
+                                    style="width: 100%; height: 100%; border-radius: 25px; overflow: hidden; background: #f9fafb;">
+                                    <img src="images/food_delivery_app.png" alt="Food Delivery Mobile App"
+                                        style="width: 100%; height: 100%; object-fit: cover;"
+                                        onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:1rem;background:linear-gradient(135deg,#10B981 0%,#059669 100%);\'><i class=\'fas fa-utensils\' style=\'font-size:3rem;color:white;opacity:0.9;\'></i><span style=\'color:white;font-weight:600;\'>Food Delivery</span></div>'">
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            style="position: relative; transform: rotate(5deg); margin-top: 2rem; transition: transform 0.3s ease;">
+                            <div
+                                style="width: 180px; height: 360px; background: white; border-radius: 30px; padding: 10px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                                <div
+                                    style="width: 100%; height: 100%; border-radius: 25px; overflow: hidden; background: #f9fafb;">
+                                    <img src="images/food_delivery_app.png" alt="Food Delivery Mobile App"
+                                        style="width: 100%; height: 100%; object-fit: cover;"
+                                        onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:1rem;background:linear-gradient(135deg,#10B981 0%,#059669 100%);\'><i class=\'fas fa-mobile-alt\' style=\'font-size:3rem;color:white;opacity:0.9;\'></i><span style=\'color:white;font-weight:600;\'>Mobile App</span></div>'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Demos -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Feature Highlights</h2>
+                <p>Detailed demonstrations of key features</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="demo-card">
+                    <div class="demo-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="demo-content">
+                        <h3>Product Management</h3>
+                        <p>See how easy it is to add products, manage variants, and organize your catalog with our
+                            intuitive interface.</p>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: auto;"
+                            onclick="alert('Interactive demo coming soon!')">
+                            <i class="fas fa-play mr-2"></i>Watch Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-image">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="demo-content">
+                        <h3>Subscription Schemes</h3>
+                        <p>Create and manage recurring payment plans for your customers with flexible billing cycles and
+                            automated renewals.</p>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: auto;"
+                            onclick="alert('Interactive demo coming soon!')">
+                            <i class="fas fa-play mr-2"></i>Watch Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-image">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="demo-content">
+                        <h3>Combo Pack Creation</h3>
+                        <p>Bundle products together and create attractive combo offers that increase average order value
+                            and customer satisfaction.</p>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: auto;"
+                            onclick="alert('Interactive demo coming soon!')">
+                            <i class="fas fa-play mr-2"></i>Watch Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="demo-content">
+                        <h3>Admin Dashboard</h3>
+                        <p>Powerful analytics and insights to grow your business with real-time data visualization and
+                            comprehensive reporting.</p>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: auto;"
+                            onclick="alert('Interactive demo coming soon!')">
+                            <i class="fas fa-play mr-2"></i>Watch Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-image">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="demo-content">
+                        <h3>Payment Integration</h3>
+                        <p>Accept payments through multiple gateways seamlessly with support for cards, UPI, wallets,
+                            and cash on delivery.</p>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: auto;"
+                            onclick="alert('Interactive demo coming soon!')">
+                            <i class="fas fa-play mr-2"></i>Watch Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-image">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="demo-content">
+                        <h3>Theme Customization</h3>
+                        <p>Switch between themes and customize your store's look with our intuitive theme management
+                            system.</p>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: auto;"
+                            onclick="alert('Interactive demo coming soon!')">
+                            <i class="fas fa-play mr-2"></i>Watch Demo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-image" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                        <i class="fas fa-utensils" style="color: white; opacity: 0.9;"></i>
+                    </div>
+                    <div class="demo-content">
+                        <h3>Food Delivery System</h3>
+                        <p>Complete food ordering system with restaurant management, menu control, real-time delivery
+                            tracking, and mobile-optimized interface.</p>
+                        <a href="https://cloudkart24.com/demo/food-delivery" target="_blank" class="btn btn-secondary"
+                            style="width: 100%; margin-top: auto;">
+                            <i class="fas fa-external-link-alt mr-2"></i>View Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Platform Screenshots</h2>
+                <p>Get a visual tour of CloudKart's interface</p>
+            </div>
+
+            <div class="screenshot-grid">
+                <div class="screenshot-item">
+                    <img src="images/General.png" alt="General Theme Storefront">
+                    <div class="screenshot-caption">Storefront - General Theme</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/Organic.png" alt="Organic Theme Storefront">
+                    <div class="screenshot-caption">Storefront - Organic Theme</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/Crackers.png" alt="Crackers Theme Storefront">
+                    <div class="screenshot-caption">Storefront - Crackers Theme</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/dashboard.png" alt="Admin Dashboard">
+                    <div class="screenshot-caption">Admin Dashboard</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/products.png" alt="Product Management">
+                    <div class="screenshot-caption">Product Management</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/subscription.png" alt="Subscription Schemes">
+                    <div class="screenshot-caption">Subscription Schemes</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/combo_pack.png" alt="Combo Pack Management">
+                    <div class="screenshot-caption">Combo Pack Creation</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/coupon.png" alt="Coupon Management">
+                    <div class="screenshot-caption">Coupon System</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/customers.png" alt="Customer Management">
+                    <div class="screenshot-caption">Customer Management</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/Brands.png" alt="Brand Management">
+                    <div class="screenshot-caption">Brand Management</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/attributes.png" alt="Product Attributes">
+                    <div class="screenshot-caption">Product Attributes & Variants</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/Settings_Theme.png" alt="Theme Settings">
+                    <div class="screenshot-caption">Theme Customization</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/Pos_Retail.png" alt="POS Retail">
+                    <div class="screenshot-caption">POS - Retail Mode</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/pos_wholesale.png" alt="POS Wholesale">
+                    <div class="screenshot-caption">POS - Wholesale Mode</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/slides.png" alt="Homepage Slides">
+                    <div class="screenshot-caption">Homepage Slide Management</div>
+                </div>
+
+                <div class="screenshot-item">
+                    <img src="images/cart_sessions.png" alt="Cart Sessions">
+                    <div class="screenshot-caption">Cart Sessions & Analytics</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo CTA -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="card"
+                style="text-align: center; padding: 3rem 1.5rem; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white;">
+                <i class="fas fa-laptop-code" style="font-size: 4rem; margin-bottom: 2rem; opacity: 0.9;"></i>
+                <h2 style="color: white; margin-bottom: 1rem;">Want to Try It Yourself?</h2>
+                <p
+                    style="font-size: 1.25rem; opacity: 0.95; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Get hands-on experience with CloudKart. Start your free trial and explore all features with no
+                    limitations.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-lg" style="background: white; color: var(--primary);">
+                        <i class="fas fa-rocket mr-2"></i>Start Free Trial
+                    </a>
+                    <a href="contact.html" class="btn btn-lg btn-secondary"
+                        style="border-color: white; color: var(--primary); background: white;">
+                        <i class="fas fa-phone mr-2"></i>Schedule Demo Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--gray-900); color: white; padding: 3rem 0 1.5rem;">
+        <div class="container">
+            <div class="grid grid-4 mb-4">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <img src="images/logo.png" alt="CloudKart Logo" style="height: 32px;">
+                        <span style="font-size: 1.25rem; font-weight: 700;">CloudKart</span>
+                    </div>
+                    <p style="color: var(--gray-400);">Premium cloud-based e-commerce platform for modern businesses.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Product</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="features.html"
+                                style="color: var(--gray-400);">Features</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="pricing.html"
+                                style="color: var(--gray-400);">Pricing</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="shopify-comparison.html"
+                                style="color: var(--gray-400);">CloudKart vs Shopify</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="demo.html" style="color: var(--gray-400);">Demo</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: var(--gray-400);">About
+                                Us</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                                style="color: var(--gray-400);">Contact</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="privacy-policy.html"
+                                style="color: var(--gray-400);">Privacy Policy</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="terms-and-conditions.html"
+                                style="color: var(--gray-400);">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Connect</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--gray-800); padding-top: 2rem; text-align: center; color: var(--gray-400);">
+                <p>&copy; <span id="currentYear"></span> CloudKart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navCTA = document.getElementById('navCTA');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        function handleResize() {
+            if (window.innerWidth <= 768) {
+                navCTA.style.display = 'none';
+            } else {
+                navCTA.style.display = 'inline-block';
+            }
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script>
+        // Check for active session
+        document.addEventListener('DOMContentLoaded', () => {
+            const dashboardWrapper = document.getElementById('navDashboardWrapper');
+            const loginLink = document.getElementById('navLogin');
+            const ctaBtn = document.getElementById('navCTA');
+
+            if (localStorage.getItem('cloudkart_user')) {
+                if (dashboardWrapper) dashboardWrapper.style.display = 'block';
+                if (loginLink) loginLink.style.display = 'none';
+                if (ctaBtn) ctaBtn.textContent = 'Launch Another';
+            }
+        });
+    </script>
+</body>
+
+</html>

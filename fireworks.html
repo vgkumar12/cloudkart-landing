@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fireworks Business Solutions - CloudKart E-Commerce Platform</title>
+    <meta name="description"
+        content="Specialized e-commerce solutions for fireworks businesses. Manage combo packs, monthly fund schemes, wholesale/retail pricing, and POS systems with CloudKart.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Fireworks Theme Enhancements */
+        .page-header {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FDC830 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .page-header h1,
+        .page-header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Cards */
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B35 0%, #F7931E 50%, #FDC830 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card Icons with Gradient */
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Feature List Styling */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--gray-700);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list i {
+            color: #FF6B35;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Section Title Enhancement */
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B35 0%, #F7931E 100%);
+            border-radius: 2px;
+        }
+
+        /* Benefit Cards with Icons */
+        .benefit-card {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.15);
+        }
+
+        /* Use Case Cards */
+        .use-case-card h4 {
+            color: var(--gray-900);
+            font-weight: 700;
+        }
+
+        .use-case-card h4 i {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* CTA Section Enhancement */
+        .cta-section {
+            background: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Intro Section Styling */
+        .intro-section {
+            background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .intro-section h2 {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="CloudKart Logo">
+                CloudKart
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="return false;">
+                        Features <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="features.html"><i class="fas fa-list"></i>All Features</a>
+                        <a href="fireworks.html"><i class="fas fa-fire-alt"></i>Fireworks Solutions</a>
+                    </div>
+                </li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin" id="navLogin">Login</a></li>
+                <li id="navDashboardWrapper" style="display:none;"><a href="admin">Dashboard</a></li>
+            </ul>
+            <a href="create-store.html" class="btn btn-primary" id="navCTA">Create Store</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-fire-alt mr-3"></i>Fireworks Business Solutions</h1>
+            <p>Specialized e-commerce features designed for fireworks retailers and seasonal businesses</p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section intro-section">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Built for Fireworks Retailers</h2>
+                <p style="font-size: 1.25rem; color: var(--gray-600); line-height: 1.8;">
+                    CloudKart offers specialized features designed specifically for fireworks businesses. From combo
+                    pack creation to monthly fund schemes and dual pricing for wholesale/retail, we understand the
+                    unique needs of seasonal fireworks retailers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Specialized Features for Your Business</h2>
+                <p>Everything you need to manage a successful fireworks retail operation</p>
+            </div>
+
+            <div class="grid grid-2">
+                <!-- Combo Pack Creation -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>Combo Pack Creation</h3>
+                    <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                        Create attractive combo packs by bundling multiple fireworks items together with special
+                        pricing. Perfect for festival seasons and bulk sales.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Bundle multiple items into themed packs</li>
+                        <li><i class="fas fa-check-circle"></i> Set special combo pricing and discounts</li>
+                        <li><i class="fas fa-check-circle"></i> Automatic inventory tracking for combos</li>
+                        <li><i class="fas fa-check-circle"></i> Create seasonal festival packs (Diwali, New Year)</li>
+                        <li><i class="fas fa-check-circle"></i> Display combo savings to customers</li>
+                    </ul>
+                </div>
+
+                <!-- Monthly Fund Schemes -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Monthly Fund Schemes</h3>
+                    <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                        Enable customers to save throughout the year with monthly payment plans. Build customer loyalty
+                        and ensure advance bookings for peak season.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Flexible 3, 6, or 12-month payment plans</li>
+                        <li><i class="fas fa-check-circle"></i> Automatic payment reminders via email/SMS</li>
+                        <li><i class="fas fa-check-circle"></i> Bonus schemes for loyal customers</li>
+                        <li><i class="fas fa-check-circle"></i> Track all active schemes in dashboard</li>
+                        <li><i class="fas fa-check-circle"></i> Maturity notifications and redemption</li>
+                    </ul>
+                </div>
+
+                <!-- POS Wholesale & Retail -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-cash-register"></i>
+                    </div>
+                    <h3>POS Wholesale & Retail Pricing</h3>
+                    <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                        Manage different price tiers for wholesale and retail customers seamlessly. Perfect for
+                        businesses serving both B2B and B2C markets.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Dual pricing (wholesale & retail)</li>
+                        <li><i class="fas fa-check-circle"></i> Customer group-based pricing</li>
+                        <li><i class="fas fa-check-circle"></i> Bulk order quantity discounts</li>
+                        <li><i class="fas fa-check-circle"></i> POS integration for in-store sales</li>
+                        <li><i class="fas fa-check-circle"></i> Unified inventory across channels</li>
+                    </ul>
+                </div>
+
+                <!-- Seasonal Inventory -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Seasonal Inventory Management</h3>
+                    <p style="color: var(--gray-600); margin-bottom: 1.5rem;">
+                        Smart inventory tools designed for the seasonal nature of fireworks business. Track stock,
+                        expiry dates, and demand patterns.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Low stock alerts for peak season</li>
+                        <li><i class="fas fa-check-circle"></i> Expiry date and safety tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Batch and manufacturing date management</li>
+                        <li><i class="fas fa-check-circle"></i> Historical demand forecasting</li>
+                        <li><i class="fas fa-check-circle"></i> Multi-location inventory sync</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Benefits -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Fireworks Businesses Choose CloudKart</h2>
+                <p>Built with the unique needs of fireworks retailers in mind</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 style="margin-bottom: 1rem;">Safety Compliance</h4>
+                    <p style="color: var(--gray-600);">
+                        Built-in safety warnings, age verification, and regulatory compliance features for fireworks
+                        sales.
+                    </p>
+                </div>
+
+                <div class="card benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 style="margin-bottom: 1rem;">Seasonal Analytics</h4>
+                    <p style="color: var(--gray-600);">
+                        Track sales patterns across festivals and seasons to optimize inventory and marketing
+                        strategies.
+                    </p>
+                </div>
+
+                <div class="card benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4 style="margin-bottom: 1rem;">Mobile App Ready</h4>
+                    <p style="color: var(--gray-600);">
+                        Native Android & iOS apps included with App Plan for on-the-go business management.
+                    </p>
+                </div>
+
+                <div class="card benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4 style="margin-bottom: 1rem;">Priority Support</h4>
+                    <p style="color: var(--gray-600);">
+                        Dedicated support during peak seasons to ensure smooth operations when it matters most.
+                    </p>
+                </div>
+
+                <div class="card benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h4 style="margin-bottom: 1rem;">Smart Notifications</h4>
+                    <p style="color: var(--gray-600);">
+                        Automated SMS and email alerts for scheme payments, stock levels, and order updates.
+                    </p>
+                </div>
+
+                <div class="card benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 style="margin-bottom: 1rem;">Customer Loyalty</h4>
+                    <p style="color: var(--gray-600);">
+                        Build long-term relationships with fund schemes, rewards programs, and personalized offers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perfect For</h2>
+                <p>CloudKart serves various types of fireworks businesses</p>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="card use-case-card">
+                    <h4 style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <i class="fas fa-store" style="font-size: 1.5rem;"></i>
+                        Retail Fireworks Shops
+                    </h4>
+                    <p style="color: var(--gray-600);">
+                        Manage your physical store and online presence with unified inventory, POS integration, and
+                        customer management. Perfect for seasonal retail operations.
+                    </p>
+                </div>
+
+                <div class="card use-case-card">
+                    <h4 style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <i class="fas fa-truck" style="font-size: 1.5rem;"></i>
+                        Wholesale Distributors
+                    </h4>
+                    <p style="color: var(--gray-600);">
+                        Serve both retail customers and wholesale buyers with dual pricing, bulk order management, and
+                        tiered discount structures.
+                    </p>
+                </div>
+
+                <div class="card use-case-card">
+                    <h4 style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <i class="fas fa-building" style="font-size: 1.5rem;"></i>
+                        Multi-Location Chains
+                    </h4>
+                    <p style="color: var(--gray-600);">
+                        Manage multiple store locations with centralized inventory, unified reporting, and consistent
+                        pricing across all outlets.
+                    </p>
+                </div>
+
+                <div class="card use-case-card">
+                    <h4 style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <i class="fas fa-globe" style="font-size: 1.5rem;"></i>
+                        Online-Only Retailers
+                    </h4>
+                    <p style="color: var(--gray-600);">
+                        Run a pure e-commerce operation with advanced features like combo packs, fund schemes, and
+                        seasonal promotions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" style="padding: 5rem 0; text-align: center; color: white;">
+        <div class="container" style="position: relative; z-index: 1;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem; color: white; line-height: 1.2;">
+                    Ready to Transform Your Fireworks Business?
+                </h2>
+                <p style="font-size: 1.35rem; opacity: 0.95; margin-bottom: 3rem; line-height: 1.6;">
+                    Join successful fireworks retailers using CloudKart to manage their online and offline sales.
+                    Start your 7-day free trial today—no credit card required.
+                </p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                    <a href="create-store.html" class="btn btn-lg"
+                        style="background: white; color: var(--primary); padding: 1.25rem 2.5rem; font-size: 1.15rem; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border: none;">
+                        <i class="fas fa-rocket mr-2"></i>Start 7-Day Free Trial
+                    </a>
+                    <a href="pricing.html" class="btn btn-lg btn-secondary"
+                        style="border: 2px solid white; color: white; background: rgba(255,255,255,0.1); padding: 1.25rem 2.5rem; font-size: 1.15rem; font-weight: 700; backdrop-filter: blur(10px);">
+                        <i class="fas fa-tag mr-2"></i>View Pricing Plans
+                    </a>
+                </div>
+                <div
+                    style="display: flex; gap: 2.5rem; justify-content: center; align-items: center; flex-wrap: wrap; opacity: 0.9; font-size: 0.95rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check-circle" style="color: #4ade80; font-size: 1.25rem;"></i>
+                        <span>No credit card required</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check-circle" style="color: #4ade80; font-size: 1.25rem;"></i>
+                        <span>7-day free trial</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check-circle" style="color: #4ade80; font-size: 1.25rem;"></i>
+                        <span>Cancel anytime</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--gray-900); color: white; padding: 3rem 0 1.5rem;">
+        <div class="container">
+            <div class="grid grid-4 mb-4">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <img src="images/logo.png" alt="CloudKart Logo" style="height: 32px;">
+                        <span style="font-size: 1.25rem; font-weight: 700;">CloudKart</span>
+                    </div>
+                    <p style="color: var(--gray-400);">Premium cloud-based e-commerce platform for modern businesses.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Product</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="features.html"
+                                style="color: var(--gray-400);">Features</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="pricing.html"
+                                style="color: var(--gray-400);">Pricing</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="fireworks.html"
+                                style="color: var(--gray-400);">Fireworks Solutions</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="demo.html" style="color: var(--gray-400);">Demo</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: var(--gray-400);">About
+                                Us</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                                style="color: var(--gray-400);">Contact</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="privacy-policy.html"
+                                style="color: var(--gray-400);">Privacy Policy</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="terms-and-conditions.html"
+                                style="color: var(--gray-400);">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Connect</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid var(--gray-700); padding-top: 1.5rem; text-align: center;">
+                <p style="color: var(--gray-400); margin: 0;">&copy; 2026 CloudKart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

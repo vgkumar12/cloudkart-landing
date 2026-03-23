@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudKart - Premium E-Commerce & Food Delivery Platform | Start Your Online Store Today</title>
+    <meta name="description"
+        content="CloudKart is a powerful cloud-based e-commerce and food delivery platform with advanced features like subscription management, combo packs, restaurant management, delivery tracking, and more. Perfect for businesses of all sizes.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Hero Section Specific Styles */
+        .hero {
+            background: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 50%, #A78BFA 100%);
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 2.75rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            opacity: 0.95;
+            max-width: 580px;
+            line-height: 1.6;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Feature Icons */
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            color: white;
+        }
+
+        /* Stats Counter */
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.375rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Pricing Preview */
+        .pricing-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s ease;
+            border: 1px solid var(--gray-100);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary-light);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0.75rem 0;
+            line-height: 1;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3.5rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        /* Checkout Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .checkout-modal {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            border-radius: var(--radius-2xl);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 2;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray-400);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--danger);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.9375rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(107, 70, 193, 0.1);
+        }
+
+        .domain-input-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .domain-suffix {
+            font-weight: 700;
+            color: var(--gray-500);
+            font-size: 0.9375rem;
+        }
+
+        .domain-status {
+            font-size: 0.8125rem;
+            margin-top: 0.375rem;
+            display: none;
+        }
+
+        .domain-status.available {
+            color: var(--success);
+            display: block;
+        }
+
+        .domain-status.taken {
+            color: var(--danger);
+            display: block;
+        }
+
+        .plan-info-bar {
+            background: var(--primary-light);
+            background-color: rgba(107, 70, 193, 0.05);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(107, 70, 193, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="CloudKart Logo">
+                CloudKart
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" style="color: var(--primary);">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="return false;">
+                        Features <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="features.html"><i class="fas fa-list"></i>All Features</a>
+                        <a href="fireworks.html"><i class="fas fa-fire-alt"></i>Fireworks Solutions</a>
+                    </div>
+                </li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="shopify-comparison.html">CloudKart vs Shopify</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin" id="navLogin">Login</a></li>
+                <li id="navDashboardWrapper" style="display:none;"><a href="admin" class="active">Dashboard</a>
+                </li>
+            </ul>
+            <a href="create-store.html" class="btn btn-primary" id="navCTA">Create Store</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+                <div class="hero-content">
+                    <h1>Launch Your Dream Online Store & Food Delivery Business</h1>
+                    <p class="mb-4">CloudKart is the most powerful cloud-based e-commerce and food delivery platform
+                        designed for modern
+                        businesses. Manage products, subscriptions, combos, food orders, and more with unmatched
+                        simplicity.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="pricing.html" class="btn btn-lg" style="background: white; color: var(--primary);">
+                            <i class="fas fa-rocket mr-2"></i>Start 7-Day Free Trial
+                        </a>
+                        <a href="demo.html" class="btn btn-lg btn-secondary"
+                            style="border-color: white; color: var(--primary); background: white;">
+                            <i class="fas fa-play mr-2"></i>Watch Demo
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image float">
+                    <img src="images/dashboard.png" alt="CloudKart Admin Dashboard"
+                        style="width: 100%; border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="grid grid-4">
+                <div class="stat-card">
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">Powerful Features</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime Guarantee</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Customer Support</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2-in-1</div>
+                    <div class="stat-label">E-Commerce & Food Delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why CloudKart Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose CloudKart?</h2>
+                <p>Everything you need to run a successful online business, all in one platform</p>
+            </div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Built with modern technologies for blazing-fast performance. Your customers will love the speed.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Enterprise-grade security with SSL, JWT authentication, and regular backups to keep your data
+                        safe.</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Responsive</h3>
+                    <p>Perfect experience on all devices. Your store looks amazing on desktop, tablet, and mobile.</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Easy Integration</h3>
+                    <p>Seamlessly integrate with Razorpay, PhonePe, Google Sign-In, WhatsApp, and more.</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Powerful Analytics</h3>
+                    <p>Track sales, monitor inventory, and make data-driven decisions with comprehensive dashboards.</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated support team is always ready to help you succeed with your online store.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Powerful Features That Set Us Apart</h2>
+                <p>CloudKart comes packed with advanced features designed for modern e-commerce</p>
+            </div>
+
+            <!-- Feature 1: Product Management -->
+            <div class="grid grid-2 mb-5" style="align-items: center; gap: 4rem;">
+                <div>
+                    <h3 class="gradient-text mb-3">Complete Product Management</h3>
+                    <h4 class="mb-3">Manage unlimited products with ease</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Unlimited Products & Categories</strong> - No limits on your catalog size
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Product Variants & Attributes</strong> - Size, color, weight variations with SKU
+                            management
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Bulk Import/Export</strong> - Upload thousands of products via CSV in seconds
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Auto Thumbnail Generation</strong> - Automatic image optimization for faster loading
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>YouTube Video Integration</strong> - Showcase products with embedded videos
+                        </li>
+                    </ul>
+                </div>
+                <div class="card"
+                    style="background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%); padding: 3rem; text-align: center;">
+                    <i class="fas fa-box-open" style="font-size: 6rem; color: var(--primary); opacity: 0.3;"></i>
+                </div>
+            </div>
+
+            <!-- Feature 2: Subscription & Combos -->
+            <div class="grid grid-2 mb-5" style="align-items: center; gap: 4rem;">
+                <div class="card"
+                    style="background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%); padding: 3rem; text-align: center;">
+                    <i class="fas fa-layer-group" style="font-size: 6rem; color: var(--primary); opacity: 0.3;"></i>
+                </div>
+                <div>
+                    <h3 class="gradient-text mb-3">Advanced Commerce Features</h3>
+                    <h4 class="mb-3">Boost revenue with subscriptions and combo packs</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Subscription Schemes</strong> - Recurring payment plans with flexible billing cycles
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Combo Pack Creation</strong> - Bundle products together with special pricing
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Coupon & Discount System</strong> - Create unlimited coupons with advanced rules
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Wholesale Pricing</strong> - Different price tiers for bulk buyers
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Brand Management</strong> - Organize products by brands with dedicated pages
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 3: Payments -->
+            <div class="grid grid-2 mb-5" style="align-items: center; gap: 4rem;">
+                <div>
+                    <h3 class="gradient-text mb-3">Multiple Payment Options</h3>
+                    <h4 class="mb-3">Accept payments the way your customers prefer</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Razorpay Integration</strong> - Accept credit cards, debit cards, UPI, and wallets
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>PhonePe Support</strong> - Popular UPI payment gateway integration
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Cash on Delivery</strong> - Traditional COD option for customer convenience
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Automatic Tax Calculation</strong> - GST and other tax calculations built-in
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Secure Transactions</strong> - PCI-DSS compliant payment processing
+                        </li>
+                    </ul>
+                </div>
+                <div class="card"
+                    style="background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%); padding: 3rem; text-align: center;">
+                    <i class="fas fa-credit-card" style="font-size: 6rem; color: var(--primary); opacity: 0.3;"></i>
+                </div>
+            </div>
+
+            <!-- Feature 4: Food Delivery -->
+            <div class="grid grid-2" style="align-items: center; gap: 4rem;">
+                <div class="card"
+                    style="background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%); padding: 3rem; text-align: center;">
+                    <i class="fas fa-utensils" style="font-size: 6rem; color: var(--primary); opacity: 0.3;"></i>
+                </div>
+                <div>
+                    <h3 class="gradient-text mb-3">Complete Food Delivery System</h3>
+                    <h4 class="mb-3">Everything you need to run a successful food delivery business</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Restaurant & Menu Management</strong> - Manage multiple restaurants, menus, and
+                            operating hours
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Delivery Zone Management</strong> - Define delivery areas with custom pricing and
+                            time estimates
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Real-Time Order Tracking</strong> - Track orders from kitchen to customer doorstep
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Delivery Partner Integration</strong> - Integrate with delivery services or manage
+                            your own fleet
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            <i class="fas fa-check-circle" style="color: var(--success); margin-right: 0.75rem;"></i>
+                            <strong>Kitchen Display System</strong> - Digital KDS for efficient kitchen operations
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the perfect plan for your business. One-time fees with optional add-ons.</p>
+            </div>
+            <div class="grid grid-2" style="gap: 3rem; max-width: 1000px; margin: 0 auto;">
+                <div class="pricing-card">
+                    <h3>Business Plan</h3>
+                    <div class="price">₹14,999<span class="price-period"> one-time</span></div>
+                    <div style="font-size: 0.9rem; color: var(--gray-600); margin-bottom: 0.5rem;">Hosting & Domain
+                        Cost:
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">
+                        ₹3,000 / Year</div>
+                    <p style="color: var(--gray-600); margin-bottom: 2rem;">For growing businesses with full features
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"
+                                style="color: var(--success); margin-right: 0.5rem;"></i><strong>Unlimited
+                                Products</strong></li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"
+                                style="color: var(--success); margin-right: 0.5rem;"></i>3 Premium Themes</li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"
+                                style="color: var(--success); margin-right: 0.5rem;"></i>WhatsApp OTP Login</li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"
+                                style="color: var(--success); margin-right: 0.5rem;"></i>Subscriptions & Combos</li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"
+                                style="color: var(--success); margin-right: 0.5rem;"></i>Food Delivery System</li>
+                    </ul>
+                    <button class="btn btn-outline btn-choose-plan" data-plan="1" style="width: 100%;">Choose
+                        Plan</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>App Plan</h3>
+                    <div class="price">₹24,999<span class="price-period"> one-time</span></div>
+                    <div style="font-size: 0.9rem; color: var(--gray-600); margin-bottom: 0.5rem;">Comprehensive
+                        Solution:</div>
+                    <div style="font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">
+                        ₹3,000 / Year (Hosting & Domain)</div>
+                    <div style="font-size: 0.85rem; color: var(--gray-600); font-weight: 500;">Includes Mobile APP
+                        (Android)</div>
+                    <p style="color: var(--gray-600); margin-bottom: 2rem;">For large organizations needing mobility</p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"
+                                style="color: var(--success); margin-right: 0.5rem;"></i><strong>Unlimited
+                                Products</strong></li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"
+                                style="color: var(--success); margin-right: 0.5rem;"></i><strong>Mobile App
+                                Included</strong></li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"
+                                style="color: var(--success); margin-right: 0.5rem;"></i>Everything in Business Plan
+                        </li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"
+                                style="color: var(--success); margin-right: 0.5rem;"></i>Custom Features</li>
+                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"
+                                style="color: var(--success); margin-right: 0.5rem;"></i>24/7 Dedicated Support</li>
+                    </ul>
+                    <button class="btn btn-primary btn-choose-plan" data-plan="2" style="width: 100%;">Choose
+                        Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Join hundreds of businesses using CloudKart to power their online stores</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="pricing.html" class="btn btn-lg" style="background: white; color: var(--primary);">
+                    <i class="fas fa-rocket mr-2"></i>Start 7-Day Free Trial
+                </a>
+                <a href="contact.html" class="btn btn-lg btn-secondary"
+                    style="border-color: white; color: var(--primary); background: white;">
+                    <i class="fas fa-phone mr-2"></i>Talk to Sales
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="checkout-modal">
+            <div class="modal-header">
+                <h3>Launch Your Store</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="plan-info-bar">
+                    <div>
+                        <span style="font-size: 0.8125rem; color: var(--gray-500); display: block;">SELECTED PLAN</span>
+                        <strong id="modalPlanName" style="color: var(--primary);">Starter Plan</strong>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-size: 0.8125rem; color: var(--gray-500); display: block;">SETUP FEE</span>
+                        <strong id="modalPlanPrice" style="color: var(--gray-900);">₹7,000</strong>
+                    </div>
+                </div>
+
+                <form id="inlineRegisterForm">
+                    <div class="form-group">
+                        <label for="m_storeName">Store Name</label>
+                        <input type="text" id="m_storeName" class="form-control" placeholder="e.g. My Awesome Shop"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="m_subdomain">Choose Subdomain</label>
+                        <div class="domain-input-group">
+                            <input type="text" id="m_subdomain" class="form-control" placeholder="my-shop" required>
+                            <span class="domain-suffix">.cloudkart.com</span>
+                        </div>
+                        <div id="m_domainStatus" class="domain-status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="m_customDomain">Custom Domain (Optional)</label>
+                        <input type="text" id="m_customDomain" class="form-control" placeholder="www.yourdomain.com">
+                    </div>
+
+                    <div style="margin: 2rem 0; height: 1px; background: var(--gray-100);"></div>
+
+                    <div class="grid grid-2" style="gap: 1rem;">
+                        <div class="form-group">
+                            <label for="m_name">Full Name</label>
+                            <input type="text" id="m_name" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="m_email">Email Address</label>
+                            <input type="email" id="m_email" class="form-control" placeholder="john@example.com"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="m_password">Create Password</label>
+                        <input type="password" id="m_password" class="form-control" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="width: 100%; padding: 1rem;">
+                        <i class="fas fa-credit-card mr-2"></i>Proceed to Checkout
+                    </button>
+                    <p style="font-size: 0.75rem; color: var(--gray-500); text-align: center; margin-top: 1rem;">
+                        By continuing, you agree to our <a href="terms-and-conditions.html">Terms of Service</a> and <a
+                            href="privacy-policy.html">Privacy Policy</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: var(--gray-900); color: white; padding: 3rem 0 1.5rem;">
+        <div class="container">
+            <div class="grid grid-4 mb-4">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <img src="images/logo.png" alt="CloudKart Logo" style="height: 32px;">
+                        <span style="font-size: 1.25rem; font-weight: 700;">CloudKart</span>
+                    </div>
+                    <p style="color: var(--gray-400);">Premium cloud-based e-commerce platform for modern businesses.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Product</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="features.html"
+                                style="color: var(--gray-400);">Features</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="pricing.html"
+                                style="color: var(--gray-400);">Pricing</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="shopify-comparison.html"
+                                style="color: var(--gray-400);">CloudKart vs Shopify</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="demo.html" style="color: var(--gray-400);">Demo</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: var(--gray-400);">About
+                                Us</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                                style="color: var(--gray-400);">Contact</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="privacy-policy.html"
+                                style="color: var(--gray-400);">Privacy Policy</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="terms-and-conditions.html"
+                                style="color: var(--gray-400);">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Connect</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--gray-800); padding-top: 2rem; text-align: center; color: var(--gray-400);">
+                <p>&copy; <span id="currentYear"></span> CloudKart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navCTA = document.getElementById('navCTA');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking on a link
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        // Show/hide CTA button based on screen size
+        function handleResize() {
+            if (window.innerWidth <= 768) {
+                navCTA.style.display = 'none';
+            } else {
+                navCTA.style.display = 'inline-block';
+            }
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .pricing-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- Checkout Flow Integration ---
+        const modal = document.getElementById('checkoutModal');
+        const closeBtn = document.getElementById('closeModal');
+        const planButtons = document.querySelectorAll('.btn-choose-plan');
+        let selectedPlanId = 1;
+
+        const planData = {
+            1: { name: 'Basic Plan', price: '₹14,999' },
+            2: { name: 'Standard Plan', price: '₹19,999' },
+            3: { name: 'App Plan', price: '₹24,999' }
+        };
+
+        // Open Modal
+        planButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                selectedPlanId = btn.getAttribute('data-plan');
+                document.getElementById('modalPlanName').textContent = planData[selectedPlanId].name;
+                document.getElementById('modalPlanPrice').textContent = planData[selectedPlanId].price;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scroll
+            });
+        });
+
+        // Close Modal
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Subdomain Availability Check
+        const subInput = document.getElementById('m_subdomain');
+        const statEl = document.getElementById('m_domainStatus');
+        let dTimeout;
+
+        subInput.addEventListener('input', () => {
+            clearTimeout(dTimeout);
+            const val = subInput.value.toLowerCase().replace(/[^a-z0-9-]/g, '');
+            subInput.value = val;
+
+            if (val.length < 3) {
+                statEl.style.display = 'none';
+                return;
+            }
+
+            dTimeout = setTimeout(async () => {
+                try {
+                    const response = await fetch('api/api/domain/check', {
+                        method: 'POST',
+                        body: JSON.stringify({ subdomain: val }),
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    const res = await response.json();
+                    if (res.data.available) {
+                        statEl.textContent = 'Available!';
+                        statEl.className = 'domain-status available';
+                    } else {
+                        statEl.textContent = 'Taken. Try another.';
+                        statEl.className = 'domain-status taken';
+                    }
+                } catch (e) {
+                    console.error("Domain check failed", e);
+                }
+            }, 500);
+        });
+
+        // Form Submission
+        document.getElementById('inlineRegisterForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+
+            const payload = {
+                name: document.getElementById('m_name').value,
+                email: document.getElementById('m_email').value,
+                password: document.getElementById('m_password').value,
+                store_name: document.getElementById('m_storeName').value,
+                subdomain: document.getElementById('m_subdomain').value,
+                custom_domain: document.getElementById('m_customDomain').value,
+                plan_id: selectedPlanId
+            };
+
+            try {
+                // 1. Register
+                const r1 = await fetch('api/api/register', {
+                    method: 'POST',
+                    body: JSON.stringify(payload),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const res1 = await r1.json();
+
+                if (!res1.success) {
+                    alert(res1.message);
+                    btn.disabled = false;
+                    btn.innerHTML = originalText;
+                    return;
+                }
+
+                // 2. Checkout
+                payload.user_id = res1.data.user_id;
+                const r2 = await fetch('api/api/checkout', {
+                    method: 'POST',
+                    body: JSON.stringify(payload),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const res2 = await r2.json();
+
+                if (res2.success) {
+                    window.location.href = 'checkout_success.html?store_id=' + res2.data.store_id;
+                } else {
+                    alert("Checkout initiation failed.");
+                    btn.disabled = false;
+                    btn.innerHTML = originalText;
+                }
+            } catch (err) {
+                alert("Something went wrong. Please try again.");
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        });
+    </script>
+    <script>
+        // Check for active session
+        document.addEventListener('DOMContentLoaded', () => {
+            const dashboardWrapper = document.getElementById('navDashboardWrapper');
+            const loginLink = document.getElementById('navLogin');
+            const ctaBtn = document.getElementById('navCTA');
+
+            if (localStorage.getItem('cloudkart_user')) {
+                if (dashboardWrapper) dashboardWrapper.style.display = 'block';
+                if (loginLink) loginLink.style.display = 'none';
+                if (ctaBtn && ctaBtn.textContent !== 'Demo Store') ctaBtn.textContent = 'Launch Another';
+            }
+        });
+    </script>
+</body>
+
+</html>

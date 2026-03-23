@@ -1,0 +1,44 @@
+# Frontend .htaccess
+# Routes API requests to backend and handles Vue Router SPA routing
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # CRITICAL: Don't rewrite if the file or directory exists (assets, images, etc.)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    
+    # API routes - forward to PHP backend (works with relative paths)
+    # CRITICAL FIX: Pass Authorization header for admin authentication
+    RewriteCond %{REQUEST_URI} ^(.*/)?api/(.*)$
+    RewriteRule ^api/(.*)$ api/index.php [QSA,L,E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    
+    # Admin routes - serve admin.html for SPA routing
+    # CRITICAL: Exclude assets FIRST, then check for admin routes
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !\.(?:js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|map)$ [NC]
+    RewriteCond %{REQUEST_URI} (^|/)admin(/|$)
+    RewriteRule ^ admin.html [L]
+    
+    # Frontend routes - serve index.html (SPA routing)
+    # Only reached if file/directory doesn't exist and not API/admin
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Set proper MIME types
+<IfModule mod_mime.c>
+    AddType application/javascript js
+    AddType text/css css
+</IfModule>
+
+# Enable CORS for API requests
+# NOTE: Using wildcard (*) for development. For production with credentials, 
+# the API's CORS middleware will override with specific origin.
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With, X-API-Key, x-api-key, X-App-Context"
+    Header set Access-Control-Max-Age "3600"
+</IfModule>

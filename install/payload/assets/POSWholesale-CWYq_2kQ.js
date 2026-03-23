@@ -1,0 +1,1 @@
+import{P as o}from"./POSComponent-CegZDTub.js";import{q as e,z as t}from"./vendor-vue-BaYriqBY.js";import"./_plugin-vue_export-helper-Bp58vchm.js";import"./vendor-state-Bxdvk8zd.js";import"./vendor-http-B9ygI19o.js";import"./Modal-DATKFPzp.js";const l={__name:"POSWholesale",setup(r){return(p,a)=>(t(),e(o,{type:"wholesale"}))}};export{l as default};

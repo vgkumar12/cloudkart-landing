@@ -1,0 +1,1 @@
+import{r as e}from"./main-CnS9iVIY.js";import{q as t,C as r,G as m,z as n}from"./vendor-vue-BaYriqBY.js";import"./_plugin-vue_export-helper-Bp58vchm.js";import"./vendor-state-Bxdvk8zd.js";import"./vendor-http-B9ygI19o.js";import"./settings-DwNgTKRj.js";const C={__name:"ProductDetail",setup(a){const o=e("ProductDetail","views");return(p,s)=>(n(),t(r(m(o))))}};export{C as default};

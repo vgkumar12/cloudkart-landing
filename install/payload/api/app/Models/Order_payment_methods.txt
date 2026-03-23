@@ -1,0 +1,41 @@
+    /**
+     * Update payment gateway order ID
+     */
+    public function updatePaymentGatewayOrderId(int $orderId, string $gatewayOrderId): bool {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("UPDATE orders SET payment_gateway_order_id = ? WHERE id = ?");
+        return $stmt->execute([$gatewayOrderId, $orderId]);
+    }
+    
+    /**
+     * Update payment status
+     */
+    public function updatePaymentStatus(int $orderId, string $paymentMethod, string $paymentStatus, ?string $gatewayOrderId = null, ?array $gatewayResponse = null): bool {
+        $conn = Database::getConnection();
+        
+        $sql = "UPDATE orders SET 
+                payment_method = ?, 
+                payment_status = ?";
+        
+        $params = [$paymentMethod, $paymentStatus];
+        
+        if ($gatewayOrderId) {
+            $sql .= ", payment_gateway_order_id = ?";
+            $params[] = $gatewayOrderId;
+        }
+        
+        if ($gatewayResponse) {
+            $sql .= ", payment_gateway_response = ?";
+            $params[] = json_encode($gatewayResponse);
+        }
+        
+        if ($paymentStatus === 'completed') {
+            $sql .= ", payment_completed_at = NOW()";
+        }
+        
+        $sql .= " WHERE id = ?";
+        $params[] = $orderId;
+        
+        $stmt = $conn->prepare($sql);
+        return $stmt->execute($params);
+    }

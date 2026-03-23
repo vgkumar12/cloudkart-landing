@@ -1,0 +1,54 @@
+# Apache configuration for MVC routing
+# Backend is now in frontend/api/ folder
+# NOTE: ModSecurity should be disabled for API endpoints to allow PUT/DELETE/PATCH
+# Add the following to production .htaccess if needed:
+# <IfModule mod_security.c>
+#     SecRuleEngine Off
+# </IfModule>
+RewriteEngine On
+
+# Prevent directory browsing
+Options -Indexes
+
+# Set index.php as directory index
+DirectoryIndex index.php
+
+# Allow all access - wrap in IfModule for compatibility
+<IfModule mod_authz_core.c>
+    # Apache 2.4+
+    Require all granted
+</IfModule>
+<IfModule !mod_authz_core.c>
+    # Apache 2.2 fallback
+    Order allow,deny
+    Allow from all
+</IfModule>
+
+# Handle CORS preflight requests
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Enable PUT, DELETE, PATCH methods
+<IfModule mod_rewrite.c>
+    # Pass HTTP method to PHP
+    RewriteCond %{REQUEST_METHOD} ^(PUT|DELETE|PATCH)$
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+# Redirect all requests to index.php except existing files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# PHP settings
+<IfModule mod_php8.c>
+    php_value display_errors 1
+    php_value error_reporting E_ALL
+</IfModule>

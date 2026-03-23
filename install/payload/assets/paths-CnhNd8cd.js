@@ -1,0 +1,1 @@
+function r(t){return t?t.startsWith("http://")||t.startsWith("https://")?t:"./"+(t.startsWith("/")?t.slice(1):t):""}function i(t){if(!t)return r("/images/logo.png");if(t.startsWith("http://")||t.startsWith("https://"))return t;let s=t;return s.startsWith("/src/")?s=s.slice(4):s.startsWith("src/")&&(s="/"+s.slice(4)),s.startsWith("/")||(s="/"+s),r(s)}export{r as a,i as g};

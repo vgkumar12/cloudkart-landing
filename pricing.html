@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - CloudKart E-Commerce Platform</title>
+    <meta name="description"
+        content="Choose the perfect CloudKart plan for your business. Transparent pricing with 7-day free trial. No credit card required.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: var(--radius-2xl);
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-base);
+            border: 2px solid var(--gray-200);
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .price {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 1.5rem 0;
+            line-height: 1;
+        }
+
+        .price-period {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        .plan-description {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-check {
+            color: var(--success);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 3rem 0;
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover {
+            background: var(--gray-50);
+        }
+
+        .check-icon {
+            color: var(--success);
+            font-size: 1.25rem;
+        }
+
+        .cross-icon {
+            color: var(--gray-300);
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="CloudKart Logo">
+                CloudKart
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="return false;">
+                        Features <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="features.html"><i class="fas fa-list"></i>All Features</a>
+                        <a href="fireworks.html"><i class="fas fa-fire-alt"></i>Fireworks Solutions</a>
+                    </div>
+                </li>
+                <li><a href="pricing.html" style="color: var(--primary);">Pricing</a></li>
+                <li><a href="shopify-comparison.html">CloudKart vs Shopify</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admin" id="navLogin">Login</a></li>
+                <li id="navDashboardWrapper" style="display:none;"><a href="admin">Dashboard</a></li>
+            </ul>
+            <a href="create-store.html" class="btn btn-primary" id="navCTA">Create Store</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Simple, Transparent Pricing</h1>
+            <p style="font-size: 1.25rem; opacity: 0.95;">Choose the perfect plan for your business. All plans include
+                7-day free trial.</p>
+            <div style="margin-top: 2rem;">
+                <a href="shopify-comparison.html" class="btn"
+                    style="background: rgba(255,255,255,0.1); border: 1px solid white; color: white;">CloudKart vs
+                    Shopify: See the difference <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2" style="gap: 3rem; max-width: 1200px; margin: 0 auto; align-items: stretch;">
+
+                <!-- Business Plan -->
+                <div class="pricing-card" style="display: flex; flex-direction: column;">
+                    <div class="plan-name">Business Plan</div>
+                    <div class="price">₹14,999<span class="price-period"> one-time</span></div>
+                    <div
+                        style="font-size: 1rem; color: var(--primary); font-weight: 700; margin: 1rem 0; padding: 1rem; background: linear-gradient(135deg, rgba(106, 70, 193, 0.1), rgba(106, 70, 193, 0.05)); border-radius: 12px; border-left: 4px solid var(--primary);">
+                        + ₹3,000/year hosting
+                    </div>
+                    <p class="plan-description">Perfect for growing businesses with advanced features</p>
+
+                    <ul class="features-list" style="flex-grow: 1;">
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span><strong>Unlimited Products</strong></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>3 Premium Themes</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>WhatsApp OTP Login</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Subscription Schemes</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Combo Packs</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Food Delivery Module</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Multi-Payment Gateway</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Priority Support</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>SSL Certificate</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Advanced Analytics</span>
+                        </li>
+                    </ul>
+
+                    <a href="create-store.html" class="btn btn-outline" data-plan-id="1"
+                        style="width: 100%; text-align: center; margin-top: 2rem;">
+                        <i class="fas fa-rocket mr-2"></i>Start 7-Day Free Trial
+                    </a>
+                </div>
+
+                <!-- App Plan (Featured) -->
+                <div class="pricing-card featured" style="display: flex; flex-direction: column;">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="plan-name">App Plan</div>
+                    <div class="price">₹24,999<span class="price-period"> one-time</span></div>
+                    <div
+                        style="font-size: 1rem; color: var(--primary); font-weight: 700; margin: 1rem 0; padding: 1rem; background: linear-gradient(135deg, rgba(106, 70, 193, 0.1), rgba(106, 70, 193, 0.05)); border-radius: 12px; border-left: 4px solid var(--primary);">
+                        + ₹3,000/year hosting
+                    </div>
+                    <p class="plan-description">Complete solution with mobile app and custom features</p>
+
+                    <ul class="features-list" style="flex-grow: 1;">
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span><strong>Everything in Business Plan</strong></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span><strong>Native Mobile App</strong> (Android & iOS)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Custom Features Development</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>White Label Solution</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>24/7 Dedicated Support</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Advanced API Access</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Custom Domain & Branding</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Priority Updates</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>Dedicated Account Manager</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle feature-check"></i>
+                            <span>App Store Publishing Support</span>
+                        </li>
+                    </ul>
+
+                    <a href="create-store.html" class="btn btn-primary" data-plan-id="2"
+                        style="width: 100%; text-align: center; margin-top: 2rem;">
+                        <i class="fas fa-rocket mr-2"></i>Start 7-Day Free Trial
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison Table -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Detailed Feature Comparison</h2>
+                <p>See exactly what's included in each plan</p>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">Feature</th>
+                        <th style="text-align: center;">Business Plan</th>
+                        <th style="text-align: center;">App Plan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Products</strong></td>
+                        <td style="text-align: center;">Unlimited</td>
+                        <td style="text-align: center;">Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Assisted Setup</strong></td>
+                        <td style="text-align: center;">200 Items</td>
+                        <td style="text-align: center;">500 Items</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Themes</strong></td>
+                        <td style="text-align: center;">Multi Theme</td>
+                        <td style="text-align: center;">Multi Theme</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Product Variants</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subscription Schemes</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Combo Packs</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wholesale Pricing</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bulk Import/Export</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>WhatsApp OTP Login</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Food Delivery System</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Payment Gateways</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Sign-In</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mobile App Support</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-times cross-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i> (Android)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hosting & Domain</strong></td>
+                        <td style="text-align: center;">₹3,000 / Year</td>
+                        <td style="text-align: center;">₹3,000 / Year</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Customer Hosting Setup</strong></td>
+                        <td style="text-align: center;">₹3,000 (One-time)</td>
+                        <td style="text-align: center;">₹3,000 (One-time)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Support</strong></td>
+                        <td style="text-align: center;">Email + Chat</td>
+                        <td style="text-align: center;">24/7 Phone</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Custom Features</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-times cross-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SLA Guarantee</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-times cross-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Account Manager</strong></td>
+                        <td style="text-align: center;"><i class="fas fa-times cross-icon"></i></td>
+                        <td style="text-align: center;"><i class="fas fa-check check-icon"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Got questions? We've got answers</p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 2rem;">
+                <div class="card">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Can I change plans later?</h4>
+                    <p>Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and
+                        we'll prorate the billing.</p>
+                </div>
+
+                <div class="card">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">What payment methods do you accept?</h4>
+                    <p>We accept all major credit cards, debit cards, UPI, net banking, and digital wallets through our
+                        secure payment gateway.</p>
+                </div>
+
+                <div class="card">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Is there a setup fee?</h4>
+                    <p>All cloud-hosted plans include free setup. If you wish to host the platform on your own server, a
+                        one-time setup fee of ₹3,000 applies.</p>
+                </div>
+
+                <div class="card">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Can I cancel anytime?</h4>
+                    <p>Yes, you can cancel your subscription at any time. No long-term contracts or cancellation fees.
+                        Your data remains accessible for 30 days.</p>
+                </div>
+
+                <div class="card">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Do you offer discounts for annual billing?
+                    </h4>
+                    <p>Yes! Save 20% when you pay annually. Contact our sales team for custom pricing on multi-year
+                        contracts.</p>
+                </div>
+
+                <div class="card">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">What about data security?</h4>
+                    <p>Your data is encrypted and stored securely. We use SSL certificates, regular backups, and comply
+                        with industry security standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+        style="background: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%); color: white; padding: 3.5rem 0; text-align: center;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1rem;">Ready to Get Started?</h2>
+            <p style="font-size: 1.25rem; opacity: 0.95; margin-bottom: 2rem;">Start your 7-day free trial today. No
+                credit card required.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-lg" style="background: white; color: var(--primary);">
+                    <i class="fas fa-rocket mr-2"></i>Start Free Trial
+                </a>
+                <a href="contact.html" class="btn btn-lg btn-secondary"
+                    style="border-color: white; color: var(--primary); background: white;">
+                    <i class="fas fa-phone mr-2"></i>Talk to Sales
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--gray-900); color: white; padding: 3rem 0 1.5rem;">
+        <div class="container">
+            <div class="grid grid-4 mb-4">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <img src="images/logo.png" alt="CloudKart Logo" style="height: 32px;">
+                        <span style="font-size: 1.25rem; font-weight: 700;">CloudKart</span>
+                    </div>
+                    <p style="color: var(--gray-400);">Premium cloud-based e-commerce platform for modern businesses.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Product</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="features.html"
+                                style="color: var(--gray-400);">Features</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="pricing.html"
+                                style="color: var(--gray-400);">Pricing</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="demo.html" style="color: var(--gray-400);">Demo</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: var(--gray-400);">About
+                                Us</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                                style="color: var(--gray-400);">Contact</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="privacy-policy.html"
+                                style="color: var(--gray-400);">Privacy Policy</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="terms-and-conditions.html"
+                                style="color: var(--gray-400);">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem;">Connect</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--gray-400); font-size: 1.5rem;"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--gray-800); padding-top: 2rem; text-align: center; color: var(--gray-400);">
+                <p>&copy; <span id="currentYear"></span> CloudKart. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navCTA = document.getElementById('navCTA');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        function handleResize() {
+            if (window.innerWidth <= 768) {
+                navCTA.style.display = 'none';
+            } else {
+                navCTA.style.display = 'inline-block';
+            }
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script>
+        // Check for active session
+        document.addEventListener('DOMContentLoaded', () => {
+            const dashboardWrapper = document.getElementById('navDashboardWrapper');
+            const loginLink = document.getElementById('navLogin');
+            const ctaBtn = document.getElementById('navCTA');
+
+            if (localStorage.getItem('cloudkart_user')) {
+                if (dashboardWrapper) dashboardWrapper.style.display = 'block';
+                if (loginLink) loginLink.style.display = 'none';
+                if (ctaBtn) ctaBtn.textContent = 'Launch Another';
+            }
+        });
+    </script>
+</body>
+
+</html>
